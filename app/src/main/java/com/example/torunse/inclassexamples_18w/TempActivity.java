@@ -1,13 +1,17 @@
 package com.example.torunse.inclassexamples_18w;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 
-public class LoginActivity extends AppCompatActivity {
+public class TempActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+
+
+        int i = 0;
+        i++;
+        setContentView(R.layout.activity_temp);
     }
 }
