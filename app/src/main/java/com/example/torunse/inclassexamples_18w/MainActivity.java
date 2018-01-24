@@ -12,6 +12,8 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //find the TextView and Button from the XML layout
         TextView tv = (TextView)findViewById(R.id.textview);
         Button btn1 = (Button)findViewById(R.id.button1);
 
