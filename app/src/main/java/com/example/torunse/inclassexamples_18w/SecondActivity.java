@@ -1,6 +1,7 @@
 package com.example.torunse.inclassexamples_18w;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,26 +12,22 @@ public class SecondActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-        Button onlyButton = (Button)findViewById(R.id.button_one);
+        Button button1 = (Button)findViewById(R.id.button_one);
+        Button cancel = (Button)findViewById(R.id.button_cancel);
+       String input = getIntent().getStringExtra("UserInput");
 
-    String text=     getIntent().getStringExtra("NameKey");
-    onlyButton.setText(text);
+       button1.setText(input);
+       button1.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               setResult(66, new Intent());
+               finish();
+           }
+       });
 
-    onlyButton.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
+        cancel.setOnClickListener(e -> {
+            setResult(88, new Intent());
             finish();
-        }
-
-
-    });
-        Button cancelButton = (Button) findViewById(R.id.button_cancel);
-        cancelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setResult(55);
-                finish();
-            }
         });
     }
 }
