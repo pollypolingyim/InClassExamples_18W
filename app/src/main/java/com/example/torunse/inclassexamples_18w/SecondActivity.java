@@ -16,7 +16,7 @@ public class SecondActivity extends Activity {
         Button cancel = (Button)findViewById(R.id.button_cancel);
        String input = getIntent().getStringExtra("UserInput");
 
-       button1.setText(input);
+    //   button1.setText(input);
        button1.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/submit_button"
+        android:text="@string/enter_text"/>
+
+    <EditText
+        android:layout_below="@id/submit_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/name_field"
+        android:hint="Type here"
+        android:inputType="textPersonName"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/back_button"
+        android:text="@string/go_back"/>
+
+</RelativeLayout>
