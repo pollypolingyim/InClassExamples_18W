@@ -25,9 +25,13 @@ public class SecondActivity extends Activity {
            }
        });
 
-        cancel.setOnClickListener(e -> {
-            setResult(88, new Intent());
-            finish();
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setResult(88, new Intent());
+                finish();
+            }
+
         });
     }
 }
