@@ -21,6 +21,7 @@ public class MainActivity extends Activity {
         SharedPreferences prefs = getSharedPreferences("UserInput", Context.MODE_PRIVATE);
         SharedPreferences.Editor edit = prefs.edit(); //edit the file
 
+
         int numLaunches = prefs.getInt("NumRuns", 0);
 
         edit.putInt("NumRuns", numLaunches + 1); //ran one more time
@@ -28,7 +29,7 @@ public class MainActivity extends Activity {
 
 
         Button button1 = (Button)findViewById(R.id.hello_button);
-        EditText textField = (EditText)findViewById(R.id.edittext);
+        final EditText textField = (EditText)findViewById(R.id.edittext);
         Button button2 = (Button)findViewById(R.id.button2);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,15 +41,18 @@ public class MainActivity extends Activity {
             }
         });
 
-        button2.setOnClickListener( e ->
-            {
-            Intent secondIntent = new Intent(MainActivity.this,
-                    ThirdActivity.class);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent secondIntent = new Intent(MainActivity.this,
+                        ThirdActivity.class);
                 Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
                     startActivityForResult(takePictureIntent, 326);
                 }
-            //startActivityForResult(secondIntent, 10);
+                //   startActivityForResult(secondIntent, 326);
+            }
+
 
             }
         );
@@ -58,13 +62,13 @@ public class MainActivity extends Activity {
     public void onStart()
     {
         super.onStart();
-        Log.d("Error!!", "Debug level");
+        Log.e("Error!!", "error level");
     }
 
     @Override
     public void onResume()
     {
-        Log.v("Error verbose!", "Verbose level");
+        Log.e("Error verbose!", "error level");
         super.onResume();
     }
 
