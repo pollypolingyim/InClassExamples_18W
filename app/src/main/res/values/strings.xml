@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">InClassExamples_18W</string>
     <string name="welcome_message">Hello </string>
-    <string name="button2_string">Other button </string>
+    <string name="go_activity1">Go Activity 1</string>
+    <string name="button2_string">Go Activity 2</string>
+    <string name="enter_text">Enter text</string>
+    <string name="go_back">Go Back</string>
 </resources>
