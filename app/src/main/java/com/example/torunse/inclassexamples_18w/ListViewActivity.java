@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -20,7 +19,7 @@ public class ListViewActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_view);
 
-        numItems = 1000;
+        numItems = 3;
 
         ListView theList = (ListView)findViewById(R.id.the_list);
         Button addButton = (Button)findViewById(R.id.reset);
@@ -58,7 +57,7 @@ public class ListViewActivity extends Activity {
             LayoutInflater inflater = getLayoutInflater();
             View createdRow = oldView;
             if(oldView == null)
-               createdRow = inflater.inflate(R.layout.custom_cell1, null);
+               createdRow = inflater.inflate(R.layout.custom_cell1, parent, false);
 
             TextView tv = (TextView)createdRow.findViewById(R.id.text_place);
             Button rowButton = (Button)createdRow.findViewById(R.id.row_button);
