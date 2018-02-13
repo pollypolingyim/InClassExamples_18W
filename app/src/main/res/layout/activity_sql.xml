@@ -13,13 +13,14 @@
     android:id="@+id/insert_button"/>
 
     <EditText
-    android:id="@+id/price"
+    android:id="@+id/sql_price"
     android:hint="@string/sql_price"
+        android:inputType="number"
     android:layout_width="match_parent"
     android:layout_height="wrap_content" />
 
     <EditText
-        android:id="@+id/name"
+        android:id="@+id/sql_name"
         android:hint="@string/sql_product_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
