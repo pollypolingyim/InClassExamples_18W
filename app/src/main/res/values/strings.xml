@@ -5,4 +5,8 @@
     <string name="button2_string">Go Activity 2</string>
     <string name="enter_text">Enter text</string>
     <string name="go_back">Go Back</string>
+
+    <string name="sql_insert">Insert Data</string>
+    <string name="sql_price">Price</string>
+    <string name="sql_product_name">Go Back</string>
 </resources>

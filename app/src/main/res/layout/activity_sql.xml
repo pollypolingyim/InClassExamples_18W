@@ -9,21 +9,22 @@
 <Button
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="Insert data"
+    android:text="@string/sql_insert"
     android:id="@+id/insert_button"/>
 
     <EditText
     android:id="@+id/price"
-    android:hint="price"
+    android:hint="@string/sql_price"
     android:layout_width="match_parent"
     android:layout_height="wrap_content" />
 
     <EditText
         android:id="@+id/name"
-        android:hint="product name"
+        android:hint="@string/sql_product_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" android:id="@+id/database_list"/>
+        android:layout_height="match_parent"
+        android:id="@+id/database_list"/>
 </LinearLayout>
