@@ -19,7 +19,7 @@ public class ListViewActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_view);
 
-        numItems = 3;
+        numItems = 100000;
 
         ListView theList = (ListView)findViewById(R.id.the_list);
         Button addButton = (Button)findViewById(R.id.reset);
@@ -59,7 +59,7 @@ public class ListViewActivity extends Activity {
             if(oldView == null)
                createdRow = inflater.inflate(R.layout.custom_cell1, parent, false);
 
-            TextView tv = (TextView)createdRow.findViewById(R.id.text_place);
+            TextView tv = (TextView) createdRow.findViewById(R.id.text_place);  //look at setContentView in onCreate
             Button rowButton = (Button)createdRow.findViewById(R.id.row_button);
             rowButton.setOnClickListener(new View.OnClickListener() {
                 @Override
