@@ -10,7 +10,8 @@ import android.widget.ListView;
 
 public class ArrayListActivity extends Activity {
 
-    private String items[] = new String[]{ "Layout Examples", "BaseAdapter examples" };
+    private String items[] = new String[]{ "Layout Examples", "BaseAdapter examples",
+            "SQL Example" };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,10 @@ public class ArrayListActivity extends Activity {
                         break;
                     case 1:
                         startActivity(new Intent( ArrayListActivity.this, ListViewActivity.class  ));
+                        break;
+                    case 2:
+                        startActivity(new Intent( ArrayListActivity.this, SQLActivity.class  ));
+
                         break;
                 }
             }
