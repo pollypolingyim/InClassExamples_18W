@@ -13,17 +13,17 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+        <Button
+            android:text="Quit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/click_me_button" />
     <CheckBox								
     android:text="Do you accept?"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/check_box" />
 
-    <Button									
-    android:text="Quit"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/click_me_button" />
 </LinearLayout>
 
 <RelativeLayout								
@@ -36,24 +36,25 @@
     android:layout_height="wrap_content"
     android:id="@+id/sayButton"
     android:layout_alignParentBottom="true"
-    android:layout_alignParentEnd="true" />
+    android:layout_alignParentStart="true" />
 
 
 
 
-<TextView									
-    android:text="Copyright 2017"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/copyright" />
-
-<EditText									
+    <EditText
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:hint="Type here"
     android:id="@+id/text_input"
     android:layout_alignParentBottom="true"
-    android:layout_alignParentStart="true"
-    android:layout_toLeftOf="@+id/sayButton" />
+    android:layout_alignParentEnd="true"
+    android:layout_toEndOf="@+id/sayButton" />
+
     </RelativeLayout>
+
+    <TextView
+        android:text="Copyright 2017"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/copyright" />
     </LinearLayout>

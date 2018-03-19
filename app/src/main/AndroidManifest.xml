@@ -6,8 +6,7 @@
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.INTERNET"/>
-
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -25,7 +24,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".SQLActivity" />
-        <activity android:name=".AsyncExample"></activity>
+        <activity android:name=".AsyncExample" />
+        <activity android:name=".FragmentExample" />
+        <activity android:name=".EmptyLayout"></activity>
     </application>
 
 </manifest>

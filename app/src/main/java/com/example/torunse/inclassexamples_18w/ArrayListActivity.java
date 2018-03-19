@@ -11,7 +11,7 @@ import android.widget.ListView;
 public class ArrayListActivity extends Activity {
 
     private String items[] = new String[]{ "Layout Examples", "BaseAdapter examples",
-            "SQL Example", "AsyncExample" };
+            "SQL Example", "AsyncExample", "Fragment Example" };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +41,9 @@ public class ArrayListActivity extends Activity {
                         break;
                     case 3:
                         startActivity(new Intent(ArrayListActivity.this, AsyncExample.class));
+                        break;
+                    case 4:
+                        startActivity(new Intent(ArrayListActivity.this, FragmentExample.class));
                         break;
                 }
             }
