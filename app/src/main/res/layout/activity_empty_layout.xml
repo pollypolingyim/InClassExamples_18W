@@ -6,14 +6,17 @@
     android:layout_height="match_parent"
     tools:context="com.example.torunse.inclassexamples_18w.EmptyLayout">
 
-
+<!-- copied from tablet layout:-->
     <FrameLayout
+        android:id="@+id/frame_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorAccent"
-        android:id="@+id/space_for_later"
-        android:layout_toRightOf="@id/left_side_layout"
-        />
+        android:layout_toRightOf="@id/left_side"
+        android:background="@color/colour_grey"
+        >
+
+    </FrameLayout>
+    <!-- copied from tablet layout:-->
 
 
 </LinearLayout>

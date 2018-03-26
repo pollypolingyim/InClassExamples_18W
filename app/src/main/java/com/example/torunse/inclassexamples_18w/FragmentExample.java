@@ -11,42 +11,41 @@ import android.widget.EditText;
 
 public class FragmentExample extends Activity {
 
-    private EditText inputText;
-    private boolean isTablet;
+    boolean isTablet ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment_example);
 
-        inputText = (EditText)findViewById(R.id.fragment_input);
+        isTablet = (findViewById(R.id.frame_layout) != null);
 
-        isTablet = (findViewById(R.id.space_for_later) != null);
+        Button submitButton = (Button)findViewById(R.id.fragment_submit);
+        EditText inputText = (EditText)findViewById(R.id.fragment_input);
 
-        Button clickButton = (Button)findViewById(R.id.fragment_button);
-        clickButton.setOnClickListener(new View.OnClickListener() {
+        submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Bundle infoToPass = new Bundle();
-                infoToPass.putString("UserText", inputText.getText().toString());
+                Bundle infoPassed = new Bundle();
+                infoPassed.putString("UserInput", inputText.getText().toString());
 
-                //if on tablet:
-                if(isTablet)
-                {
+                if(isTablet) {
                     FragmentManager fm = getFragmentManager();
                     FragmentTransaction ft = fm.beginTransaction();
-                    DetailFragment df  =  new DetailFragment();
-                    df.setArguments( infoToPass );
-                    ft.addToBackStack("Any name, not used"); //only undo FT on back button
-                    ft.replace(  R.id.space_for_later , df);
-                    ft.commit();
+                    DetailFragment df = new DetailFragment();
+
+                     df.setArguments(infoPassed);
+
+                    ft.replace(R.id.frame_layout, df);
+                    ft.addToBackStack("Any string here"); //back button will unto transaction
+                    ft.commit(); //put the fragment on the screen
                 }
-                else //this is a phone:
+                else // for phone:
                 {
-                    Intent next = new Intent(FragmentExample.this, EmptyLayout.class);
-                    next.putExtras(infoToPass);
-                    startActivity(next);
+                    Intent frameLayout = new Intent(FragmentExample.this, EmptyLayout.class);
+                    frameLayout.putExtras(infoPassed);
+                    startActivity(frameLayout);
                 }
             }
         });

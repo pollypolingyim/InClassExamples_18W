@@ -1,33 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<LinearLayout
-    android:layout_width="wrap_content"
+
+<LinearLayout android:orientation="vertical"
+    android:layout_width="300dp"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:id="@+id/left_side_layout"
-    tools:context="com.example.torunse.inclassexamples_18w.FragmentExample">
-<EditText android:layout_height="wrap_content"
-    android:id="@+id/fragment_input"
-    android:layout_width="match_parent"
-    android:hint="This is a tablet"/>
+    android:id="@+id/left_side">
 
-
-    <Button  android:layout_height="wrap_content"
-        android:id="@+id/fragment_button"
+    <EditText android:id="@+id/fragment_input"
         android:layout_width="match_parent"
-        android:text="Click me - tablet"/>
+        android:layout_height="wrap_content"
+        android:hint="Type here"/>
+
+    <Button android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="Submit"
+        android:id="@+id/fragment_submit"/>
 </LinearLayout>
-    <!-- Only on tablet: -->
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorAccent"
-        android:id="@+id/space_for_later"
-        android:layout_toRightOf="@id/left_side_layout"
-        />
+
+
+<FrameLayout
+    android:id="@+id/frame_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_toRightOf="@id/left_side"
+    android:background="@color/colour_grey"
+    >
+
+</FrameLayout>
+
 </RelativeLayout>

@@ -10,18 +10,20 @@ public class EmptyLayout extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_empty_layout);//the screen will be pink
+        setContentView(R.layout.activity_empty_layout);
 
-Bundle infoToPass = getIntent().getExtras();
+        Bundle infoPassed = getIntent().getExtras();
 
-        //tablet click handler code:
+
+        //copy and paste button code:
         FragmentManager fm = getFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        DetailFragment df  =  new DetailFragment();
-        df.setArguments( infoToPass );
-        ft.addToBackStack("Any name, not used"); //only undo FT on back button
-        ft.replace(  R.id.space_for_later , df);
-        ft.commit();
+        DetailFragment df = new DetailFragment();
 
+        df.setArguments(infoPassed);
+
+        ft.replace(R.id.frame_layout, df);
+   //     ft.addToBackStack("Any string here"); //back button will unto transaction
+        ft.commit(); //put the fragment on the screen
     }
 }
