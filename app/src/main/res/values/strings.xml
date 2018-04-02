@@ -9,4 +9,6 @@
     <string name="sql_insert">Insert Data</string>
     <string name="sql_price">Price</string>
     <string name="sql_product_name">product name</string>
+    <string name="A"> A</string>
+    <string name="B"> B</string>
 </resources>
