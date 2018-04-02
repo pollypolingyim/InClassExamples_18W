@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+<LinearLayout android:orientation="vertical"
+    android:layout_width="300dp"
+    android:layout_height="match_parent"
+    android:id="@+id/left_side">
+
+    <EditText android:id="@+id/fragment_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Type here"/>
+
+    <Button android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="Submit"
+        android:id="@+id/fragment_submit"/>
+</LinearLayout>
+
+
+<FrameLayout
+    android:id="@+id/frame_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_toRightOf="@id/left_side"
+    android:background="@color/colour_grey"
+    >
+
+</FrameLayout>
+
+</RelativeLayout>
