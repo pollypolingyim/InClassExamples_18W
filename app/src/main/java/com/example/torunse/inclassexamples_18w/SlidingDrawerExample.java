@@ -17,7 +17,7 @@ public class SlidingDrawerExample extends AppCompatActivity  implements Navigati
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_navigation_example);
+        setContentView(R.layout.activity_navigation_drawer_example);
         Toolbar tBar = (Toolbar)findViewById(R.id.nav_toolbar);
 
         setSupportActionBar(tBar);

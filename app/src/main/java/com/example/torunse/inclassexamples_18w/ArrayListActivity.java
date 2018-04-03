@@ -12,7 +12,7 @@ public class ArrayListActivity extends Activity {
 
     private String items[] = new String[]{ "Layout Examples", "BaseAdapter examples",
             "SQL Example", "AsyncExample", "Fragment Example", "Navigation Example" ,
-            "Toolbar", "Navigation Drawer Example", "Sensor example"};
+            "Navigation Drawer Example", "Sensor example"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,14 +49,11 @@ public class ArrayListActivity extends Activity {
                     case 5:
                         startActivity(new Intent(ArrayListActivity.this, NavigationExample.class));
                         break;
-                    case 6:
-                        startActivity(new Intent(ArrayListActivity.this, TestToolbar.class));
 
-                        break;
-                    case 7:
+                    case 6:
                         startActivity(new Intent(ArrayListActivity.this, SlidingDrawerExample.class));
                         break;
-                    case 8:
+                    case 7:
                         startActivity(new Intent(ArrayListActivity.this, SensorsExample.class));
                         break;
                 }

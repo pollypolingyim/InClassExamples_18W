@@ -34,14 +34,6 @@
         <activity android:name=".FragmentExample" />
         <activity android:name=".EmptyLayout" />
         <activity android:name=".NavigationExample" />
-        <activity
-            android:name=".TestToolbar"
-            android:label="@string/title_activity_test_toolbar"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity
-            android:name=".Testing"
-            android:label="@string/title_activity_testing"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".SlidingDrawerExample" />
         <activity android:name=".SensorsExample"></activity>
     </application>

@@ -25,8 +25,8 @@ public class NavigationExample extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_example);
 
-       // Toolbar tBar = (Toolbar)findViewById(R.id.toolbar_example);
-        //setSupportActionBar(tBar);
+        Toolbar tBar = (Toolbar)findViewById(R.id.nav_toolbar);
+        setSupportActionBar(tBar);
 
 
     }
