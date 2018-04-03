@@ -8,102 +8,115 @@ import android.util.Log;
 import android.widget.TextView;
 
 import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
+import java.util.Scanner;
 
 public class AsyncExample extends Activity {
 
-    TextView numberShow;
-
+    TextView statusView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_async_example);
-        numberShow = (TextView)findViewById(R.id.number);
+try {
+    File f = new File(getFilesDir(), "Hello.txt");
+    f.exists();
 
-        WebInformationTask myBackgroundThread = new WebInformationTask();
-        //Start the thread:
-        myBackgroundThread.execute("http://torunski.ca/CST2335_XML.xml"); //T1 parameter
+    f.delete();
+
+}catch(Exception e){}
+
+
+        statusView = (TextView) findViewById(R.id.number);
+        MyAsyncThread myThread = new MyAsyncThread();
+
+        //pass data to other core
+        myThread.execute("http://torunski.ca/CST2335_XML.xml" );
     }
 
-
-    //this is the background thread object:
-    public class WebInformationTask extends AsyncTask<String, Integer, String>
+    public class MyAsyncThread extends AsyncTask<String, Integer, String>
     {
+        //Background thread  (other core)
+        public String doInBackground(String ... args)
+         {
+            int counter = 0;
+            for(String siteUrl: args)
+            {
+                try {
 
-        //for computation and network connections, background thread:
-        public String doInBackground(String ... arg)
-        {
-            try {
-                for(String siteUrl: arg) {
                     URL url = new URL(siteUrl);
-
                     HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-                    InputStream iStream = urlConnection.getInputStream();
+                    InputStream inStream = urlConnection.getInputStream();
+
 
                     XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
                     factory.setNamespaceAware(false);
                     XmlPullParser xpp = factory.newPullParser();
-                    xpp.setInput( iStream  , "UTF-8");
+                    xpp.setInput( inStream  , "UTF-8");
 
-//start reading:
-                    int type;
-                    //While you're not at the end of the document:
-                    while((type = xpp.getEventType()) != XmlPullParser.END_DOCUMENT)
+                    int eventType = xpp.getEventType();
+                    while(eventType != XmlPullParser.END_DOCUMENT)
                     {
-                        //Are you currently at a Start Tag?
-                        if(xpp.getEventType() == XmlPullParser.START_TAG)
+                        switch(eventType)
                         {
-                            //Is it the "AMessage" tag?
-                            if(xpp.getName().equals("AMessage") )
-                            {
-                                String value =xpp.getAttributeValue(null, "message");
-                                Log.i("XML Message:" , value );
-                            }
-                            //Is it the Weather tag?
-                            else if(xpp.getName().equals("Weather") )
-                            {
-                                FileOutputStream of = openFileOutput("XMLData", Context.MODE_PRIVATE);
-                                String value =xpp.getAttributeValue(null, "outlook");
-                                Log.i("XML outlook:" , value );
+                            case XmlPullParser.START_TAG:
+                                String tagName = xpp.getName();
+                                if(tagName.equals("AMessage"))
+                                {
+                                    String value = xpp.getAttributeValue(null, "message");
+                                    Log.i("value:", value);
+                                }
+                                if(tagName.equals("Weather"))
+                                {
+                                    String outlook = xpp.getAttributeValue(null, "outlook");
+                                    String windy = xpp.getAttributeValue(null, "windy");
+                                    Log.i("windy:", windy);
+                                    Log.i("outlook:", outlook);
+                                }
+                                Log.i("Found tag:", tagName);
+                                break;
+                            case XmlPullParser.TEXT:
+                                String text = xpp.getText();
 
-                                value = xpp.getAttributeValue(null, "windy");
-                                Log.i("XML windy:" , value );
-                            }
+                                Log.i("Found text:", text);
+
+                                break;
                         }
-                        // Go to the next XML event
                         xpp.next();
+                        eventType = xpp.getEventType();
                     }
+
+                }catch (Exception mfe)
+                {
+                    Log.e("Exception:", mfe.getMessage());
                 }
-            }catch (Exception mfe)
-            {
-                Log.e("Error", mfe.getMessage());
+
+
+                //telling Android data is ready
+                publishProgress( ++counter );
             }
-            //Send a string to the GUI thread through onPostExecute
-            return "Finished";
+            return "Finished downloading";
+         }
 
+        //update the gui:
+        public void onProgressUpdate(Integer ... args)
+        {
+            statusView.setText("Downloaded:" + args[0] );
         }
 
-        //when GUI is ready, update the objects
-        public void onProgressUpdate(Integer ... data)
+        //Gui thread, computation is finished
+        public void onPostExecute(String result )
         {
-            numberShow.setText("The number is now:" + data[0] );
-        }
-
-        //gui thread
-        public void onPostExecute(String result)
-        {
-            //now you can post your result to the GUI
-            numberShow.setText("Finished running thread" );
+            statusView.setText(result);
         }
     }
 }
