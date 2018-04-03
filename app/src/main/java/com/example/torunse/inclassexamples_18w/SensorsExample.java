@@ -37,15 +37,12 @@ public class SensorsExample extends Activity implements SensorEventListener {
             @Override
             public void onClick(View v) {
                 Vibrator vr = (Vibrator) SensorsExample.this.getSystemService(Context.VIBRATOR_SERVICE);
-                long pattern[] = new long[]{ 50, 1000, 500, 2000};
-                vr.vibrate(pattern, -1);
+                vr.vibrate(1000);
             }
         });
 
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-
-        mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
-
+        mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         mSensorManager.registerListener(this, mSensor, SensorManager.SENSOR_DELAY_NORMAL);
 
         xView = (TextView)findViewById(R.id.x_field);
@@ -63,21 +60,13 @@ public class SensorsExample extends Activity implements SensorEventListener {
         float  []newVals = evt.values;
         int numDimensions = newVals.length;
 
-        float lightIntensity = newVals[0];
-
-        xView.setText("Light: "+ lightIntensity);
-
-        if(lightIntensity < 200)
-            finish();
-
-/*        xView.setText("X:" + newVals[0]);
+        xView.setText("X:" + newVals[0]);
         yView.setText("Y:" + newVals[1]);
         zView.setText("Z:" + newVals[2]);
 
-        if(newVals[1] >7)
+        if(newVals[1] < 0)
         {
             finish();
         }
-        */
     }
 }

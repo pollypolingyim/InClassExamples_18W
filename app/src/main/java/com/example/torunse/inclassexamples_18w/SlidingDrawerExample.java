@@ -19,10 +19,10 @@ public class SlidingDrawerExample extends AppCompatActivity  implements Navigati
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_drawer_example);
         Toolbar tBar = (Toolbar)findViewById(R.id.nav_toolbar);
+
         setSupportActionBar(tBar);
-
-
         DrawerLayout dl = (DrawerLayout)findViewById(R.id.nav_drawer_example);
+
         ActionBarDrawerToggle toggle =  new ActionBarDrawerToggle(this,dl,  tBar,
                 R.string.open_drawer, R.string.close_drawer);
         dl.setDrawerListener(toggle);

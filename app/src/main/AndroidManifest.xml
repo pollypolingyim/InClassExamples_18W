@@ -12,7 +12,7 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
 
     <application
         android:allowBackup="true"
@@ -35,7 +35,7 @@
         <activity android:name=".EmptyLayout" />
         <activity android:name=".NavigationExample" />
         <activity android:name=".SlidingDrawerExample" />
-        <activity android:name=".SensorsExample" />
+        <activity android:name=".SensorsExample"></activity>
     </application>
 
 </manifest>

@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">InClassExamples_18W</string>
+
     <string name="Vibrate">Vibrate</string>
+    <string name="Greeting">Hello world</string>
+
     <string name="welcome_message">Hello </string>
     <string name="go_activity1">Go Activity 1</string>
     <string name="button2_string">Go Activity 2</string>
